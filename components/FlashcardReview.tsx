@@ -142,7 +142,7 @@ export default function FlashcardReview({ statsOpen }: { statsOpen: boolean }) {
           <Button
             id="flip-button"
             variant="ghost"
-            className="absolute inset-0 w-full h-full p-0 m-0 cursor-pointer z-10"
+            className="absolute inset-0 w-full h-full p-0 m-0 cursor-pointer z-10 hover:bg-transparent"
             onClick={handleFlip}
           >
             <span className="sr-only">Flip Card</span>
