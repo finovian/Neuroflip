@@ -1,12 +1,12 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import type React from "react";
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { Check, X, RotateCw, Volume2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/utils";
+import { Check, Volume2, X } from "lucide-react";
 
 import {
   Tooltip,
@@ -14,10 +14,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useFlashcardStore } from "@/store/useFlashcardStore";
-import { useToast } from "@/hooks/useToast";
 import { useMobile } from "@/hooks/useMobile";
+import { useToast } from "@/hooks/useToast";
+import { useFlashcardStore } from "@/store/useFlashcardStore";
 import { useSound } from "../provider/SoundProvider";
+import ReviewQueue from "./ReviewQueue";
 
 export default function FlashcardReview({ statsOpen }: { statsOpen: boolean }) {
   const { reviewQueue, markCardAsKnown, markCardAsUnknown, currentCard } =
@@ -30,7 +31,6 @@ export default function FlashcardReview({ statsOpen }: { statsOpen: boolean }) {
   const { playFlipSound, playSuccessSound, playErrorSound } = useSound();
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Reset flip state when card changes
   useEffect(() => {
     setIsFlipped(false);
   }, [currentCard?.id]);
@@ -126,33 +126,7 @@ export default function FlashcardReview({ statsOpen }: { statsOpen: boolean }) {
   };
 
   if (reviewQueue.length === 0) {
-    return (
-      <motion.div
-        className="flex flex-col items-center justify-center p-6 text-center"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <motion.div
-          className="rounded-full bg-primary/10 p-6 mb-4"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
-        >
-          <Check className="h-10 w-10 text-primary" />
-        </motion.div>
-        <h2 className="text-2xl font-bold mb-2">All caught up!</h2>
-        <p className="text-muted-foreground mb-6">
-          You&apos;ve reviewed all the flashcards in your queue.
-        </p>
-        <Button
-          onClick={() => useFlashcardStore.getState().resetSession()}
-          className="transition-all hover:scale-105"
-        >
-          <RotateCw className="mr-2 h-4 w-4" />
-          Start New Session
-        </Button>
-      </motion.div>
-    );
+    return <ReviewQueue />;
   }
 
   return (

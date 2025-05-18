@@ -4,7 +4,7 @@ import type React from "react";
 
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/utils";
 
 export default function BackgroundWrapper({
   children,
