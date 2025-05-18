@@ -142,9 +142,8 @@ export default function FlashcardApp() {
                       setStatsOpen(!statsOpen);
                       setIsSheetOpen(false);
                     }}
-                    className={`w-full justify-start ${
-                      statsOpen ? "bg-primary/10" : ""
-                    }`}
+                    className={`w-full justify-start ${statsOpen ? "bg-primary/10" : ""
+                      }`}
                   >
                     <BarChart2 className="h-4 w-4 mr-2" />
                     {statsOpen ? "Hide Stats" : "Show Stats"}
@@ -263,9 +262,8 @@ export default function FlashcardApp() {
                       variant="outline"
                       size="icon"
                       onClick={() => setStatsOpen(!statsOpen)}
-                      className={`transition-all hover:scale-105 ${
-                        statsOpen ? "bg-primary/10" : ""
-                      }`}
+                      className={`transition-all hover:scale-105 ${statsOpen ? "bg-primary/10" : ""
+                        }`}
                     >
                       <BarChart2 className="h-4 w-4" />
                     </Button>

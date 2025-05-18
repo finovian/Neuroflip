@@ -41,8 +41,6 @@ export default function BackgroundWrapper({
             : "bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(255,255,255,0.8)_100%)]"
         )}
       />
-
-      {/* Content */}
       <div className="relative z-10 h-full w-full">{children}</div>
     </div>
   );
