@@ -9,7 +9,7 @@ import {
   ToastViewport,
 } from "@/components/ui/toast";
 import { useToast } from "@/hooks/use-toast";
-import type { ToasterToast } from "@/hooks/use-toast";
+import { ToasterToast } from "@/types";
 
 export function Toaster() {
   const { toasts } = useToast();
@@ -17,8 +17,19 @@ export function Toaster() {
   return (
     <ToastProvider>
       {toasts.map(
-        ({ id, title, description, action, ...props }: ToasterToast) => (
-          <Toast key={id} {...props}>
+        ({
+          id,
+          title,
+          description,
+          action,
+          variant,
+          ...props
+        }: ToasterToast) => (
+          <Toast
+            key={id}
+            variant={variant as "default" | "destructive" | "success"}
+            {...props}
+          >
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
               {description && (
