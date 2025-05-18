@@ -19,7 +19,7 @@ import { useToast } from "@/hooks/useToast";
 import { useMobile } from "@/hooks/useMobile";
 import { useSound } from "../provider/SoundProvider";
 
-export default function FlashcardReview() {
+export default function FlashcardReview({ statsOpen }: { statsOpen: boolean }) {
   const { reviewQueue, markCardAsKnown, markCardAsUnknown, currentCard } =
     useFlashcardStore();
   const [isFlipped, setIsFlipped] = useState(false);
@@ -387,7 +387,7 @@ export default function FlashcardReview() {
       )}
 
       {/* Action buttons - mobile */}
-      {isMobile && (
+      {isMobile && !statsOpen && (
         <div className="mobile-action-buttons">
           <Button
             id="dont-know-button"

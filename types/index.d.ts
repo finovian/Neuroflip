@@ -64,3 +64,11 @@ export type Action =
       type: ActionType["REMOVE_TOAST"];
       toastId?: ToasterToast["id"];
     };
+export interface TooltipPayload {
+  name: string;
+  value: number;
+  payload: {
+    name: string;
+    value: number;
+  };
+}

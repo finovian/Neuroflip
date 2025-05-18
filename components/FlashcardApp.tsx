@@ -37,6 +37,7 @@ export default function FlashcardApp() {
   const { toast } = useToast();
   const isMobile = useMobile();
   const { isSoundEnabled, toggleSound } = useSound();
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   useEffect(() => {
     initializeStore();
@@ -106,14 +107,20 @@ export default function FlashcardApp() {
               )}
             </Button>
 
-            <Sheet>
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-8 w-8">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-8 w-8"
+                  onClick={() => setIsSheetOpen(true)}
+                >
                   <Menu className="h-4 w-4" />
                 </Button>
               </SheetTrigger>
+
               <SheetContent side="top" className="pt-12 theme-transition">
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 p-3">
                   <CategoryFilter
                     categories={allCategories}
                     selectedCategories={selectedCategories}
@@ -131,7 +138,10 @@ export default function FlashcardApp() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => setStatsOpen(!statsOpen)}
+                    onClick={() => {
+                      setStatsOpen(!statsOpen);
+                      setIsSheetOpen(false);
+                    }}
                     className={`w-full justify-start ${
                       statsOpen ? "bg-primary/10" : ""
                     }`}
@@ -287,7 +297,7 @@ export default function FlashcardApp() {
 
         {/* Flashcard Area */}
         <div className="flex-1 flex items-center justify-center p-4 md:p-6">
-          <FlashcardReview />
+          <FlashcardReview statsOpen={statsOpen} />
         </div>
 
         {/* Footer - only on desktop */}

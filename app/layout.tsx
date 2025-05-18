@@ -5,7 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/provider/ThemeProvider";
 import { SoundProvider } from "@/provider/SoundProvider";
 import BackgroundWrapper from "@/components/BackgroundWrapper";
-import { Toaster } from "sonner";
+import ToastProvider from "@/provider/ToasterProvider";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -16,6 +16,9 @@ const quicksand = Quicksand({
 export const metadata: Metadata = {
   title: "NeuroFlip - Flashcard Learning App",
   description: "A modern flashcard app with spaced repetition",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export const viewport: Viewport = {
@@ -46,7 +49,7 @@ export default function RootLayout({
           <SoundProvider>
             <BackgroundWrapper>
               {children}
-              <Toaster position="bottom-right" closeButton richColors />
+              <ToastProvider />
             </BackgroundWrapper>
           </SoundProvider>
         </ThemeProvider>

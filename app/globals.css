@@ -89,7 +89,7 @@
   @apply bg-muted-foreground/50;
 }
 
-/* Card shine effect */
+
 .card-shine {
   position: relative;
   overflow: hidden;
@@ -195,7 +195,7 @@
 }
 
 /* Mobile optimizations */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .mobile-action-buttons {
     position: fixed;
     bottom: 0;
@@ -349,3 +349,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.recharts-layer {
+  font-size: 14px;
+  padding-right: 12px;
+}
+
+

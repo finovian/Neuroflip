@@ -22,6 +22,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { FlashcardStats } from "@/types";
+import CustomTooltip from "./ui/CustomTooltip";
 
 interface StatsViewProps {
   stats: FlashcardStats;
@@ -33,11 +34,11 @@ export default function StatsView({ stats }: StatsViewProps) {
   const isMobile = useMobile();
 
   const chartData = [
-    { name: "Known", value: stats.known, color: "hsl(var(--success))" },
+    { name: "Known", value: stats.known, color: { isDark, color: "green" } },
     {
       name: "To Review",
       value: stats.unknown,
-      color: "hsl(var(--destructive))",
+      color: { isDark, color: "green" },
     },
   ];
 
@@ -50,7 +51,7 @@ export default function StatsView({ stats }: StatsViewProps) {
     unknown: entry.unknown,
   }));
 
-  const COLORS = ["hsl(var(--success))", "hsl(var(--destructive))"];
+  const COLORS = isDark ? ["#22c55e", "#ef4444"] : ["#16a34a", "#dc2626"];
 
   const container = {
     hidden: { opacity: 0 },
@@ -107,8 +108,8 @@ export default function StatsView({ stats }: StatsViewProps) {
             <CardTitle className="text-base">Card Status</CardTitle>
             <CardDescription>Known vs. to review cards</CardDescription>
           </CardHeader>
-          <CardContent className="pt-4">
-            <div className={isMobile ? "h-[150px]" : "h-[180px]"}>
+          <CardContent className="p-0 py-0 px-0">
+            <div className={isMobile ? "h-[180px]" : "h-[200px]"}>
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -117,7 +118,7 @@ export default function StatsView({ stats }: StatsViewProps) {
                     cy="50%"
                     labelLine={false}
                     outerRadius={isMobile ? 60 : 70}
-                    fill="#8884d8"
+                    fill={isDark ? "#22c55e" : "#16a34a"} // Known
                     dataKey="value"
                     label={({ name, percent }) =>
                       `${name}: ${(percent * 100).toFixed(0)}%`
@@ -132,14 +133,7 @@ export default function StatsView({ stats }: StatsViewProps) {
                       />
                     ))}
                   </Pie>
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: isDark ? "hsl(var(--card))" : "#fff",
-                      border: "1px solid hsl(var(--border))",
-                      borderRadius: "6px",
-                      color: isDark ? "#fff" : "#000",
-                    }}
-                  />
+                  <Tooltip content={<CustomTooltip isDark={isDark} />} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
@@ -154,7 +148,7 @@ export default function StatsView({ stats }: StatsViewProps) {
               <CardTitle className="text-base">Review History</CardTitle>
               <CardDescription>Last 7 days of activity</CardDescription>
             </CardHeader>
-            <CardContent className="pt-4">
+            <CardContent className="pt-4 ">
               <div className={isMobile ? "h-[150px]" : "h-[180px]"}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={historyData}>
@@ -164,26 +158,20 @@ export default function StatsView({ stats }: StatsViewProps) {
                       fontSize={10}
                     />
                     <YAxis stroke={isDark ? "#888" : "#666"} fontSize={10} />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: isDark ? "hsl(var(--card))" : "#fff",
-                        border: "1px solid hsl(var(--border))",
-                        borderRadius: "6px",
-                        color: isDark ? "#fff" : "#000",
-                      }}
-                    />
+                    <Tooltip content={<CustomTooltip isDark={isDark} />} />
+
                     <Bar
                       dataKey="known"
                       name="Known"
                       stackId="a"
-                      fill="hsl(var(--success))"
+                      fill={isDark ? "#22c55e" : "#16a34a"}
                       radius={[4, 4, 0, 0]}
                     />
                     <Bar
                       dataKey="unknown"
                       name="Unknown"
                       stackId="a"
-                      fill="hsl(var(--destructive))"
+                      fill={isDark ? "#ef4444" : "#dc2626"}
                       radius={[4, 4, 0, 0]}
                     />
                   </BarChart>
