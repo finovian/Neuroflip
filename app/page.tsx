@@ -1,15 +1,10 @@
-import Flashcard from "@/components/Flashcard";
-import StatsBar from "@/components/StatsBar";
-import React from "react";
+import FlashcardApp from "@/components/FlashcardApp";
 
-const page = () => {
+
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center px-4">
-      <h1 className="text-3xl font-bold mb-8">🧠 NeuroFlip</h1>
-      <Flashcard />
-      <StatsBar />
-    </div>
-  );
-};
-
-export default page;
+    <main className="h-[100dvh] w-full overflow-hidden">
+      <FlashcardApp />
+    </main>
+  )
+}
