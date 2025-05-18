@@ -4,7 +4,7 @@ A powerful and minimalistic **flip card learning tool** built with **Next.js**, 
 
 [![NeuroFlip Live](https://img.shields.io/badge/Live%20Site-neuroflip.vercel.app-1e88e5?style=for-the-badge&logo=vercel)](https://neuroflip.vercel.app/)
 
-![Screenshot](./public/preview.png) <!-- Replace with real path if added -->
+![Screenshot](./public/preview.png) 
 
 ---
 
@@ -53,6 +53,9 @@ NeuroFlip is an **educational memory-flip app** that helps learners actively rec
 ├── types/                   # Global TypeScript types
 ├── public/                  # Static files (images, preview)
 └── styles/                  # Global styles and Tailwind config
+
+```
+
 📦 Getting Started
 1. Clone the Repository
 bash
@@ -85,7 +88,7 @@ Export progress to CSV or PDF
 This project is open-source under the MIT License.
 
 🙌 Credits
-Made with 💙 by [Your Name]
+Made with 💙 by [@jayrajsakha07]
 
 UI powered by ShadCN UI
 
@@ -93,9 +96,5 @@ Animations via Framer Motion
 
 🔗 Live Demo
 👉 https://neuroflip.vercel.app
-
-markdown
-Copy
-Edit
 
 ---
