@@ -55,46 +55,14 @@ NeuroFlip is an **educational memory-flip app** that helps learners actively rec
 └── styles/                  # Global styles and Tailwind config
 
 ```
-
-📦 Getting Started
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/neuroflip.git
+# Clone the repo
+git clone https://github.com/jayrajshakha07/neuroflip.git
 cd neuroflip
-2. Install Dependencies
-bash
-Copy
-Edit
+
+# Install dependencies
 npm install
-3. Run the App
-bash
-Copy
-Edit
+
+# Run the development server
 npm run dev
-Visit http://localhost:3000 to start learning!
-
-📊 Coming Soon
-User login and cloud sync
-
-Custom decks & topic-based learning
-
-Leaderboards and motivational gamification
-
-Export progress to CSV or PDF
-
-📄 License
-This project is open-source under the MIT License.
-
-🙌 Credits
-Made with 💙 by [@jayrajsakha07]
-
-UI powered by ShadCN UI
-
-Animations via Framer Motion
-
-🔗 Live Demo
-👉 https://neuroflip.vercel.app
 
 ---
