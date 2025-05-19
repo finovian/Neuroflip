@@ -4,11 +4,10 @@ import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { Check, RotateCw } from "lucide-react";
-import { useFlashcardStore } from "@/store/useFlashcardStore";
+import { useFlashcardStore } from "@/stores/useFlashcardStore";
 
 const ReviewQueue = () => {
   return (
-
     <motion.div
       className="flex flex-col items-center justify-center p-6 text-center"
       initial={{ opacity: 0, scale: 0.9 }}

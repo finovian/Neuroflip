@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 
 import { useMobile } from "@/hooks/useMobile";
 import { useToast } from "@/hooks/useToast";
-import { useFlashcardStore } from "@/store/useFlashcardStore";
+import { useFlashcardStore } from "@/stores/useFlashcardStore";
 import { AnimatePresence, motion } from "framer-motion";
 import { BarChart2, Menu, RefreshCw, Volume2, VolumeX, X } from "lucide-react";
 import CategoryFilter from "./CategoryFilter";
 import FlashcardReview from "./FlashcardReview";
-import { useSound } from "../provider/SoundProvider";
+import { useSound } from "../providers/SoundProvider";
 import StatsBar from "./StatsBar";
 import StatsView from "./StatsView";
 import ThemeToggle from "./ThemeToggle";
@@ -67,6 +67,8 @@ export default function FlashcardApp() {
 
   const handleResetSession = () => {
     resetSession();
+    setStatsOpen(false);
+    setIsSheetOpen(false);
     toast({
       title: "Session Reset",
       description: "Your review session has been reset with new cards.",
@@ -142,8 +144,9 @@ export default function FlashcardApp() {
                       setStatsOpen(!statsOpen);
                       setIsSheetOpen(false);
                     }}
-                    className={`w-full justify-start ${statsOpen ? "bg-primary/10" : ""
-                      }`}
+                    className={`w-full justify-start ${
+                      statsOpen ? "bg-primary/10" : ""
+                    }`}
                   >
                     <BarChart2 className="h-4 w-4 mr-2" />
                     {statsOpen ? "Hide Stats" : "Show Stats"}
@@ -262,8 +265,9 @@ export default function FlashcardApp() {
                       variant="outline"
                       size="icon"
                       onClick={() => setStatsOpen(!statsOpen)}
-                      className={`transition-all hover:scale-105 ${statsOpen ? "bg-primary/10" : ""
-                        }`}
+                      className={`transition-all hover:scale-105 ${
+                        statsOpen ? "bg-primary/10" : ""
+                      }`}
                     >
                       <BarChart2 className="h-4 w-4" />
                     </Button>

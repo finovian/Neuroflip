@@ -4,7 +4,7 @@ import { Flame, Brain, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useMobile } from "@/hooks/useMobile";
-import { useFlashcardStore } from "@/store/useFlashcardStore";
+import { useFlashcardStore } from "@/stores/useFlashcardStore";
 import { Progress } from "./ui/progress";
 
 export default function StatsBar() {

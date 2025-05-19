@@ -2,10 +2,10 @@ import type React from "react";
 import type { Metadata, Viewport } from "next";
 import { Quicksand } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/provider/ThemeProvider";
-import { SoundProvider } from "@/provider/SoundProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { SoundProvider } from "@/providers/SoundProvider";
 import BackgroundWrapper from "@/components/BackgroundWrapper";
-import ToastProvider from "@/provider/ToasterProvider";
+import ToastProvider from "@/providers/ToasterProvider";
 
 const quicksand = Quicksand({
   subsets: ["latin"],

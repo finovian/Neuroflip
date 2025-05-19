@@ -5,7 +5,7 @@ import type React from "react";
 import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/utils/utils";
+import { cn } from "@/libs/utils/utils";
 import { Check, Volume2, X } from "lucide-react";
 
 import {
@@ -16,8 +16,8 @@ import {
 } from "@/components/ui/tooltip";
 import { useMobile } from "@/hooks/useMobile";
 import { useToast } from "@/hooks/useToast";
-import { useFlashcardStore } from "@/store/useFlashcardStore";
-import { useSound } from "../provider/SoundProvider";
+import { useFlashcardStore } from "@/stores/useFlashcardStore";
+import { useSound } from "../providers/SoundProvider";
 import ReviewQueue from "./ReviewQueue";
 
 export default function FlashcardReview({ statsOpen }: { statsOpen: boolean }) {

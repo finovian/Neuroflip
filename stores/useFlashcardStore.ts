@@ -3,7 +3,7 @@
 import { Flashcard, FlashcardStats } from "@/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { mockFlashcards } from "@/constants/mockFlashcards";
+import { mockFlashcards } from "@/libs/constants/mockFlashcards";
 
 interface FlashcardState {
   flashcards: Flashcard[];

@@ -4,7 +4,7 @@ import type React from "react";
 
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import { cn } from "@/utils/utils";
+import { cn } from "@/libs/utils/utils";
 
 export default function BackgroundWrapper({
   children,
@@ -26,10 +26,7 @@ export default function BackgroundWrapper({
     <div className="relative h-full w-full overflow-hidden">
       <div
         className={cn(
-          "absolute inset-0 w-full h-full opacity-10 pointer-events-none bg-repeat bg-[length:600px]",
-          theme === "dark"
-            ? "bg-[url('/images/45.jpg')]"
-            : "bg-[url('/images/45.jpg')]"
+          "absolute inset-0 w-full h-full opacity-10 pointer-events-none bg-repeat bg-[length:600px]"
         )}
       />
 

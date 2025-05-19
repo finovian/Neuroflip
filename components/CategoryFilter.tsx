@@ -1,7 +1,7 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { cn } from "@/utils/utils";
+import { cn } from "@/libs/utils/utils";
 import { Button } from "@/components/ui/button";
 
 import { useState } from "react";
@@ -103,7 +103,7 @@ export default function CategoryFilter({
           className="border-dashed  transition-all hover:border-primary/50 hover:bg-primary/5"
         >
           <span>Categories</span>
-          {(
+          {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -116,7 +116,7 @@ export default function CategoryFilter({
                 {selectedCategories.length}
               </Badge>
             </motion.div>
-          )}
+          }
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[220px] p-0" align="start">
