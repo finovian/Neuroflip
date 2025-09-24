@@ -56,7 +56,7 @@ NeuroFlip is an **educational memory-flip app** that helps learners actively rec
 
 ```
 # Clone the repo
-git clone https://github.com/jayrajshakha07/neuroflip.git
+git clone https://github.com/finovian/neuroflip.git
 cd neuroflip
 
 # Install dependencies
@@ -66,3 +66,4 @@ npm install
 npm run dev
 
 ---
+
